@@ -10,4 +10,3 @@ export const getUpcomingMovies = () => {
             throw error
         });
 };
-

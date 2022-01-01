@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { AuthContext } from './authContext';
+import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router-dom";
 
 const LoginPage = props => {
@@ -16,9 +16,10 @@ const LoginPage = props => {
   // Either / or the protected path user tried to access.
   const { from } = props.location.state || { from: { pathname: "/" } };
 
-  if (context.isAuthenticated === true) {
+  if (context.isAuthenticated === true)
     return <Redirect to={from} />;
-  }
+
+
   return (
     <>
       <h2>Login page</h2>
@@ -36,5 +37,6 @@ const LoginPage = props => {
     </>
   );
 };
+
 
 export default LoginPage;
