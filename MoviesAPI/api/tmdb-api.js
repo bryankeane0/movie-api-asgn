@@ -10,3 +10,17 @@ export const getUpcomingMovies = () => {
             throw error
         });
 };
+
+export const getMovies = () => {
+    return fetch(
+        '/api/movies', {headers: {
+            'Authorization': window.localStorage.getItem('token')
+       }
+    }).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    })
+        .catch((e) => {
+            throw e
+        });
+};

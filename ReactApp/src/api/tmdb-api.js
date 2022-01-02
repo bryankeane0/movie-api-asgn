@@ -1,6 +1,6 @@
 export const getMovies = () => {
     return fetch(
-        '/api/movies',{headers: {
+        '/api/movies', {headers: {
             'Authorization': window.localStorage.getItem('token')
        }
     }).then((response) => {
