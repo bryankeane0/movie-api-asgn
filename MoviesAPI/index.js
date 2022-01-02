@@ -16,12 +16,14 @@ const errHandler = (err, req, res, next) => {
     return res.status(500).send(`Something went wrong!`);
   res.status(500).send(`Hey!! You caught the error 👍👍. Here's the details: ${err.stack} `);
 };
+
 app.use(passport.initialize());
+app.use(express.json());
 app.use('/api/genres', genresRouter);
 app.use('/api/users', usersRouter);
-app.use(express.json());
-app.use(errHandler);
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+app.use(errHandler);
+
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
 });

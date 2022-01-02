@@ -21,9 +21,8 @@ export const signup = (username, password) => {
 
 export const getMovies = () => {
     return fetch(
-       '/api/movies',{headers: {
-         'Authorization': window.localStorage.getItem('token')
-      }
-    }
-    ).then(res => res.json());
-  };
+        '/api/movies',{headers: {
+            'Authorization': window.localStorage.getItem('token')
+        }
+    }).then(res => res.json());
+};

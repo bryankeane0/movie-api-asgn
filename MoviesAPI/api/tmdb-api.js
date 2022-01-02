@@ -11,16 +11,13 @@ export const getUpcomingMovies = () => {
         });
 };
 
-export const getMovies = () => {
+export const getTrendingMovies = () => {
     return fetch(
-        '/api/movies', {headers: {
-            'Authorization': window.localStorage.getItem('token')
-       }
-    }).then((response) => {
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
-    })
-        .catch((e) => {
-            throw e
-        });
+    }).catch((e) => {
+        throw e
+    });
 };
